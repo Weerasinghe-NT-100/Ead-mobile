@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@drawable/main_bg"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/app_name_text"
+        android:layout_width="267dp"
+        android:layout_height="131dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="64dp"
+        android:fontFamily="@font/cabin"
+        android:gravity="center"
+        android:rotationX="8"
+        android:text="E-TrainBooking"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/welcome_back_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_name_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="Welcome Back"
+        android:textSize="24sp"
+        android:textColor="@color/whiteSmoke"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcome_back_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/custom_prof_upd_btn"
+        android:text="Sign Up"
+        android:elevation="20dp"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_signup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_prof_del_btn"
+        android:text="Login"
+        android:elevation="20dp"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

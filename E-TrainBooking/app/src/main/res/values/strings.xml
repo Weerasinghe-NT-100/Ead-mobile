@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">E-TrainBooking</string>
+    <!-- Define string arrays -->
+    <string-array name="start_station_array">
+        <item>Aluthgama</item>
+        <item>Anuradhapura</item>
+        <item>Badulla</item>
+        <item>Colombo Maradana</item>
+        <item>Colombo Fort</item>
+        <item>Ella</item>
+        <item>Galle</item>
+        <item>Gampaha</item>
+        <item>Hikkaduwa</item>
+        <item>Jaffna</item>
+        <item>Kalutara</item>
+        <item>Kandy</item>
+        <item>Matara</item>
+        <item>Nanu Oya</item>
+        <item>Panaduara</item>
+        <item>Polgahawela</item>
+        <item>Trincomalee</item>
+        <item>Vavuniya</item>
+    </string-array>
+
+    <string-array name="destination_station_array">
+        <item>Aluthgama</item>
+        <item>Anuradhapura</item>
+        <item>Badulla</item>
+        <item>Colombo Maradana</item>
+        <item>Colombo Fort</item>
+        <item>Ella</item>
+        <item>Galle</item>
+        <item>Gampaha</item>
+        <item>Hikkaduwa</item>
+        <item>Jaffna</item>
+        <item>Kalutara</item>
+        <item>Kandy</item>
+        <item>Matara</item>
+        <item>Nanu Oya</item>
+        <item>Panaduara</item>
+        <item>Polgahawela</item>
+        <item>Trincomalee</item>
+        <item>Vavuniya</item>
+    </string-array>
+
+</resources>

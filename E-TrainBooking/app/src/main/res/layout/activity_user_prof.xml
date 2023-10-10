@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@drawable/b_image"
+    tools:context=".UserController.UserViewDetails">
+
+    <!-- User Profile Image -->
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/user_avatar"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- User's Name -->
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="John Doe"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Email Address -->
+    <TextView
+        android:id="@+id/email_label"
+        android:layout_width="117dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:text="Email:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_name" />
+
+    <!-- Email Value -->
+    <TextView
+        android:id="@+id/email_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="elan123@gmail.com"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/user_name"
+        app:layout_constraintStart_toEndOf="@+id/email_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="48dp"/>
+
+    <!-- Mobile Number -->
+    <TextView
+        android:id="@+id/mobile_label"
+        android:layout_width="117dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:text="Mobile Number:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_label" />
+
+    <!-- Mobile Number Value -->
+    <TextView
+        android:id="@+id/mobile_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1234567890"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/email_label"
+        app:layout_constraintStart_toEndOf="@+id/mobile_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"/>
+
+    <!-- NIC (National Identification Card) -->
+    <TextView
+        android:id="@+id/nic_label"
+        android:layout_width="122dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:text="NIC:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobile_label" />
+
+    <!-- NIC Value -->
+    <TextView
+        android:id="@+id/nic_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="NIC12345"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/mobile_label"
+        app:layout_constraintStart_toEndOf="@+id/nic_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"/>
+
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/custom_prof_upd_btn"
+        android:text="Update"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nic_label" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/custom_prof_del_btn"
+        android:text="Delete"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/update_button"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nic_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

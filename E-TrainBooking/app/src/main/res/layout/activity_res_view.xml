@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@drawable/b_image"
+    tools:context=".ReservationController.ResViewDetails">
+
+    <!-- User Profile Image -->
+    <ImageView
+        android:id="@+id/res_image"
+        android:layout_width="wrap_content"
+        android:layout_height="220dp"
+        android:elevation="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/res_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Train ID -->
+    <TextView
+        android:id="@+id/txt_trainid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TE203458"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/res_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_width="117dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:text="Full of name:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_trainid" />
+
+    <!-- Name Value -->
+    <TextView
+        android:id="@+id/txtTname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nimal Weerasinghe"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_trainid"
+        app:layout_constraintStart_toEndOf="@+id/name_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="48dp"/>
+
+    <!-- NIC Number -->
+    <TextView
+        android:id="@+id/nic_label"
+        android:layout_width="117dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:text="NIC/Passport:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+    <!-- NIC Value -->
+    <TextView
+        android:id="@+id/txtTnic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1234567890"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/name_label"
+        app:layout_constraintStart_toEndOf="@+id/nic_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"/>
+
+    <!-- Train -->
+    <TextView
+        android:id="@+id/train_label"
+        android:layout_width="122dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:text="Train:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nic_label" />
+
+    <!-- Train Value -->
+    <TextView
+        android:id="@+id/txtTrain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Yal Devi"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/nic_label"
+        app:layout_constraintStart_toEndOf="@+id/train_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"/>
+
+    <!-- Date -->
+    <TextView
+        android:id="@+id/date_label"
+        android:layout_width="122dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:text="Date:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/train_label" />
+
+    <!-- Date Value -->
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="2023.10.20"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/train_label"
+        app:layout_constraintStart_toEndOf="@+id/date_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"/>
+
+    <!-- Start Station -->
+    <TextView
+        android:id="@+id/start_label"
+        android:layout_width="122dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:text="Start Station:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_label" />
+
+    <!-- Start Station Value-->
+    <TextView
+        android:id="@+id/txtStart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Matara"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/date_label"
+        app:layout_constraintStart_toEndOf="@+id/start_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"/>
+
+    <!-- Destination Station -->
+    <TextView
+        android:id="@+id/destination_label"
+        android:layout_width="122dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:text="Destination Station:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_label" />
+
+    <!-- Start Station Value-->
+    <TextView
+        android:id="@+id/txtDestination"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Vavuniya"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/start_label"
+        app:layout_constraintStart_toEndOf="@+id/destination_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"/>
+
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/custom_prof_upd_btn"
+        android:text="Update"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/destination_label" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="57dp"
+        android:background="@drawable/custom_prof_del_btn"
+        android:text="Cancel"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/update_button"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/destination_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

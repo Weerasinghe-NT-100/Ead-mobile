@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/back_icon.xml" value="0.1825" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/btnshape.xml" value="0.1825" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/custom_aedit_btn.xml" value="0.172" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/custom_cancel_btn.xml" value="0.184" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/custom_confirm_btn.xml" value="0.172" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/custom_djoin_btn.xml" value="0.179" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/custom_edt_btn.xml" value="0.184" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/custom_pjoin_btn.xml" value="0.179" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/custom_shed_btn.xml" value="0.2555" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/edittext.xml" value="0.1835" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.1825" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_baseline_bullet.xml" value="0.1985" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_baseline_bulletRed.xml" value="0.121" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_baseline_bulletblack.xml" value="0.121" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_baseline_bulletred.xml" value="0.1325" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_baseline_horizontal_rule_24.xml" value="0.121" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_baseline_label_24.xml" value="0.121" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_baseline_label_important_24.xml" value="0.121" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.1" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_card4.xml" value="0.124" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_group_26780.xml" value="0.1835" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_icons8_gas_pump_48_1.xml" value="0.121" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/regedittext.xml" value="0.208" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/shape.xml" value="0.1825" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/shape2.xml" value="0.172" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/shape3.xml" value="0.172" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/sheddetails.xml" value="0.172" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/spinner.xml" value="0.2545" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/spinneredit.xml" value="0.1835" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/font/.xml" value="0.28020833333333334" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_edit_shed_details.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_queueexitbox.xml" value="0.264" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_queueinbox.xml" value="0.24895833333333334" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_shed_card_view.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_shed_details_view.xml" value="0.264" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_shed_home.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_shed_listview.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_shed_view_card.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/shed_view_card.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/ACER/AndroidStudioProjects/EasyQueue/EasyQueue/app/src/main/res/layout/activity_main.xml" value="0.22" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
