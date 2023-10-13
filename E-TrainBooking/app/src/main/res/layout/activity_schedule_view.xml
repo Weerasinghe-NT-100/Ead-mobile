@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_bg"
+    android:background="@drawable/b_image"
     android:orientation="vertical"
     android:padding="10dp"
     android:scaleType="centerCrop"
-    tools:context=".ReservationController.PastReservations">
+    tools:context=".TrainController.ScheduleView">
 
     <LinearLayout
+        android:id="@+id/txt_user"
         android:layout_width="match_parent"
         android:layout_height="88dp"
         android:gravity="center_vertical"
@@ -45,47 +45,25 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:paddingTop="?attr/actionBarSize"
-            android:layout_width="400dp"
-            android:layout_height="match_parent"
-            android:layout_below="@id/txt_titleName"
-            android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/user_img"
+    <TextView
+        android:id="@+id/txt_title"
         android:layout_width="wrap_content"
-        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:background="@drawable/custom_linear_layout">
+        android:layout_marginLeft="12dp"
+        android:layout_weight="1"
+        android:text="Train Schedule"
+        android:textAlignment="viewStart"
+        android:textColor="#720000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/res_image"
-            android:layout_width="240dp"
-            android:layout_height="200dp"
-            android:elevation="8dp"
-            android:scaleType="fitCenter"
-            android:alpha="0.4"
-            android:src="@drawable/empty_list"
-            android:layout_gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="390dp"
+        android:layout_height="590dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </LinearLayout>

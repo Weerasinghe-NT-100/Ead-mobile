@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.example.etrainbooking.Auth.Login;
 import com.example.etrainbooking.Auth.Register;
+import com.example.etrainbooking.TrainController.ScheduleView;
 import com.example.etrainbooking.UserController.User;
 import com.google.gson.Gson;
 

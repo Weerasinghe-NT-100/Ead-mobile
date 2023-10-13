@@ -20,6 +20,7 @@ import com.example.etrainbooking.ReservationController.CustomAdapter;
 import com.example.etrainbooking.ReservationController.PastReservations;
 import com.example.etrainbooking.ReservationController.Reservation;
 import com.example.etrainbooking.ReservationController.ReservationAdd;
+import com.example.etrainbooking.TrainController.ScheduleView;
 import com.example.etrainbooking.UserController.User;
 import com.example.etrainbooking.UserController.UserViewDetails;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -82,7 +83,7 @@ public class Home extends AppCompatActivity {
         goToAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ReservationAdd.class);
+                Intent intent = new Intent(getApplicationContext(), ScheduleView.class);
                 startActivity(intent);
             }
         });
