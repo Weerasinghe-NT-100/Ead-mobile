@@ -3,76 +3,94 @@ package com.example.etrainbooking.UserController;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private String Id, Fname,Lname,Email,MobileNo, Nic,Password;
+    private String nic, username, password, role, contactNo, name, age, address;
+    private boolean isActive;
 
-    public User(){
+    public User() {
 
     }
 
-    public User(String id, String fname, String lname, String email, String mobileNo, String nic, String password) {
-        Id = id;
-        Fname=fname;
-        Lname=lname;
-        Email = email;
-        MobileNo = mobileNo;
-        Nic = nic;
-        Password = password;
-    }
-
-    public String getId() {
-        return Id;
-    }
-
-    public void setId(String id) {
-        Id = id;
-    }
-
-    public String getFname() {
-        return Fname;
-    }
-
-    public void setFname(String fname) {
-        Fname = fname;
-    }
-
-    public String getLname() {
-        return Lname;
-    }
-
-    public void setLname(String lname) {
-        Lname = lname;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public String getMobileNo() {
-        return MobileNo;
-    }
-
-    public void setMobileNo(String mobileNo) {
-        MobileNo = mobileNo;
+    public User(String nic, String username, String password, String role, String contactNo, String name, String age, String address, boolean isActive) {
+        this.nic = nic;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.contactNo = contactNo;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.isActive = isActive;
     }
 
     public String getNic() {
-        return Nic;
+        return nic;
     }
 
     public void setNic(String nic) {
-        Nic =nic;
+        this.nic = nic;
+    }
+
+    public String getUserName() {
+        return username;
+    }
+
+    public void setUserName(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getContactNo() {
+        return contactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 }

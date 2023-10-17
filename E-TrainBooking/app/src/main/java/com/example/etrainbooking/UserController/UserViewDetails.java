@@ -2,6 +2,8 @@ package com.example.etrainbooking.UserController;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,21 +15,29 @@ import android.content.DialogInterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.etrainbooking.APIClient;
+import com.example.etrainbooking.APIInterface;
 import com.example.etrainbooking.Auth.Login;
 import com.example.etrainbooking.Auth.SessionManager;
 import com.example.etrainbooking.DBHelper.DBHelper;
 import com.example.etrainbooking.R;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class UserViewDetails extends AppCompatActivity {
 
     private ImageView profileImage;
-    private TextView userNameTextView, emailLabelTextView, emailValueTextView,
+    private TextView userNameTextView,
+            nameLabelTextView, nameValueTextView,
             mobileLabelTextView, mobileValueTextView,
             nicLabelTextView, nicValueTextView,
             addressLabelTextView, addressValueTextView;
     private Button goEdit,goDelete;
     private SessionManager sessionManager;
     private DBHelper dbHelper;
+    APIInterface apiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +47,14 @@ public class UserViewDetails extends AppCompatActivity {
         // Initialize views
         profileImage = findViewById(R.id.profile_image);
         userNameTextView = findViewById(R.id.user_name);
-        emailLabelTextView = findViewById(R.id.email_label);
-        emailValueTextView = findViewById(R.id.email_value);
+        nameLabelTextView = findViewById(R.id.name_label);
+        nameValueTextView = findViewById(R.id.name_value);
         mobileLabelTextView = findViewById(R.id.mobile_label);
         mobileValueTextView = findViewById(R.id.mobile_value);
         nicLabelTextView = findViewById(R.id.nic_label);
         nicValueTextView = findViewById(R.id.nic_value);
+        addressLabelTextView = findViewById(R.id.address_label);
+        addressValueTextView = findViewById(R.id.address_value);
         goEdit = findViewById(R.id.update_button);
         goDelete = findViewById(R.id.delete_button);
 
@@ -52,40 +64,27 @@ public class UserViewDetails extends AppCompatActivity {
         // Initialize DBHelper
         dbHelper = new DBHelper(this);
 
+        // Create a Retrofit instance for the MongoDB API
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+
         // Check if the user is logged in
         if (sessionManager.isUserLoggedIn()) {
             // Retrieve user id
-            String userId = sessionManager.getUserId();
+            String userNic = sessionManager.getUserNic();
 
             // Use the user's email to retrieve user details from your database
-            User user = dbHelper.getUserById(userId);
+            User user = dbHelper.getUserByNIC(userNic);
 
-            if (user != null) {
-                userNameTextView.setText(user.getFname() + " " + user.getLname());
-                emailValueTextView.setText(user.getEmail());
-                mobileValueTextView.setText(user.getMobileNo());
-                nicValueTextView.setText(user.getNic());
+            // Check network availability
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-                goEdit.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(UserViewDetails.this, UserEditDetails.class);
-                        intent.putExtra("id", user.getId());
-                        startActivity(intent);
-                    }
-                });
-
-                // Set an OnClickListener for the updateButton
-                goDelete.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        // Handle the update logic here
-                        showDeleteConfirmationDialog(user);
-                    }
-                });
-
+            if (networkInfo != null && networkInfo.isConnected()) {
+                // Device is online, fetch user data from the API
+                fetchUserDataFromAPI(user.getNic());
             } else {
-                Toast.makeText(UserViewDetails.this, "User details not found, Please Try Again.", Toast.LENGTH_LONG).show();
+                // Device is offline, fetch user data from the SQLite database
+                fetchUserDataFromSQLite(userNic);
             }
         } else {
             Intent intent = new Intent(UserViewDetails.this, Login.class);
@@ -94,14 +93,97 @@ public class UserViewDetails extends AppCompatActivity {
         }
     }
 
+    // Implement the fetchUserDataFromAPI method to fetch user data from the API
+    private void fetchUserDataFromAPI(String nic) {
+        Call<User> call = apiInterface.getUserByNIC(nic);
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    User user = response.body();
+
+                    if (user != null) {
+                        userNameTextView.setText(user.getUserName());
+                        nameValueTextView.setText(user.getName());
+                        mobileValueTextView.setText(user.getContactNo());
+                        nicValueTextView.setText(user.getNic());
+                        addressValueTextView.setText(user.getAddress());
+
+                        goEdit.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(UserViewDetails.this, UserEditDetails.class);
+                                startActivity(intent);
+                            }
+                        });
+
+                        // Set an OnClickListener for the updateButton
+                        goDelete.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                // Handle the update logic here
+                                showDeleteConfirmationDialog(user);
+                            }
+                        });
+
+                    } else {
+                        Toast.makeText(UserViewDetails.this, "User details not found, Please Try Again.", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(UserViewDetails.this, "Failed to fetch user data from API. Please try again.", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(UserViewDetails.this, "Network request failed. Please check your internet connection.", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void fetchUserDataFromSQLite(String userNic){
+        // Use the user's email to retrieve user details from your database
+        User user = dbHelper.getUserByNIC(userNic);
+
+        if (user != null) {
+            userNameTextView.setText(user.getUserName());
+            nameValueTextView.setText(user.getName());
+            mobileValueTextView.setText(user.getContactNo());
+            nicValueTextView.setText(user.getNic());
+            addressValueTextView.setText(user.getAddress());
+
+            goEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(UserViewDetails.this, UserEditDetails.class);
+                    startActivity(intent);
+                }
+            });
+
+            // Set an OnClickListener for the updateButton
+            goDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Handle the update logic here
+                    showDeleteConfirmationDialog(user);
+                }
+            });
+
+        } else{
+            Toast.makeText(UserViewDetails.this, "User details not found, Please Try Again.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
     // Implement the deleteUser method to delete the user from the database
     private void deleteUser(User user) {
         // Create or open the SQLite database
         SQLiteDatabase database = dbHelper.getWritableDatabase();
 
         // Specify the WHERE clause to identify the row to delete (e.g., by user ID)
-        String whereClause = DBHelper.Column_ID + " = ?";
-        String[] whereArgs = new String[]{String.valueOf(user.getId())};
+        String whereClause = DBHelper.Column_NIC + " = ?";
+        String[] whereArgs = new String[]{user.getNic()};
 
         // Delete the user from the database
         int rowsDeleted = database.delete(DBHelper.TABLE_NAME, whereClause, whereArgs);

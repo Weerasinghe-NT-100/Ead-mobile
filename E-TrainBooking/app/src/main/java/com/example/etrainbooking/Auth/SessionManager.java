@@ -10,7 +10,7 @@ public class SessionManager {
     private Context context;
 
     private static final String PREF_NAME = "UserSession";
-    private static final String KEY_USER_ID = "userId";
+    private static final String KEY_USER_ID = "userNic";
     // Add more user-specific keys as needed
 
     public SessionManager(Context context) {
@@ -19,8 +19,8 @@ public class SessionManager {
         editor = sharedPreferences.edit();
     }
 
-    public void startSession(String userId) {
-        editor.putString(KEY_USER_ID, userId);
+    public void startSession(String userNic) {
+        editor.putString(KEY_USER_ID, userNic);
 
         editor.apply();
     }
@@ -29,7 +29,7 @@ public class SessionManager {
         return sharedPreferences.getString(KEY_USER_ID, null) != null;
     }
 
-    public String getUserId() {
+    public String getUserNic() {
         return sharedPreferences.getString(KEY_USER_ID, null);
     }
 

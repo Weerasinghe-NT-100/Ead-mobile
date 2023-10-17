@@ -17,17 +17,20 @@ public class DBHelper extends SQLiteOpenHelper {
     UUID uuid = UUID.randomUUID();
     String uuidAsString = uuid.toString();
 
+    public static final int DATABASE_VERSION = 4;
     public static final String DATABASE_NAME = "TicketReservation.db";
 
   /*-----------------------Uers table------------------------*/
     public static final String TABLE_NAME="User";
-    public static final String Column_ID="id";
-    public static final String Column_Fname="fname";
-    public static final String Column_Lname="lname";
-    public static final String Column_Email="email";
-    public static final String Column_Mobile="mobileNo";
-    public static final String Column_Nic="nic";
-    public static final String Column_Password="password";
+    public static final String Column_Name="fname";
+    public static final String Column_NIC="nic";
+    public static final String Column_Mobile="contactNo";
+    public static final String Column_Age="age";
+    public static final String Column_Address="address";
+    public static final String Column_Username="username";
+    public static final String Column_Password = "password";
+    public static final String Column_Role="role";
+    public static final String Column_IsActive="isActive";
 
   /*-----------------------Reservation table------------------------*/
 
@@ -48,7 +51,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+ TABLE_NAME +" ("+Column_ID+" INTEGER PRIMARY KEY, " +Column_Fname+" VARCHAR," +Column_Lname+" VARCHAR, " +Column_Email+" VARCHAR, " +Column_Mobile+" VARCHAR, " +Column_Nic+" VARCHAR, " +Column_Password+" VARCHAR)";
+        String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
+                Column_Name + " VARCHAR, " +
+                Column_NIC + " VARCHAR PRIMARY KEY, " +
+                Column_Mobile + " VARCHAR, " +
+                Column_Age + " VARCHAR, " +
+                Column_Address + " VARCHAR, " +
+                Column_Username + " VARCHAR, " +
+                Column_Password + " TEXT, " +
+                Column_Role + " VARCHAR, " +
+                Column_IsActive + " VARCHAR)";
         sqLiteDatabase.execSQL(CREATE_TABLE);
     }
 
@@ -59,38 +71,42 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public User getUserById(String id) {
+    public User getUserByNIC(String nic) {
         User user = null;
         SQLiteDatabase database = this.getReadableDatabase();
 
         // Define the columns you want to retrieve
         String[] columns = {
-                Column_ID,
-                Column_Fname,
-                Column_Lname,
-                Column_Email,
+                Column_Name,
+                Column_NIC,
                 Column_Mobile,
-                Column_Nic,
-                Column_Password
+                Column_Age,
+                Column_Address,
+                Column_Username,
+                Column_Password,
+                Column_Role,
+                Column_IsActive
         };
 
         // Define the selection criteria (WHERE clause)
-        String selection = Column_ID + " = ?";
-        String[] selectionArgs = {id};
+        String selection = Column_NIC + " = ?";
+        String[] selectionArgs = {nic};
 
         // Query the database
         Cursor cursor = database.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
             user = new User(
-                    cursor.getString(cursor.getColumnIndex(Column_ID)),
-                    cursor.getString(cursor.getColumnIndex(Column_Fname)),
-                    cursor.getString(cursor.getColumnIndex(Column_Lname)),
-                    cursor.getString(cursor.getColumnIndex(Column_Email)),
+                    cursor.getString(cursor.getColumnIndex(Column_NIC)),
+                    cursor.getString(cursor.getColumnIndex(Column_Username)),
+                    cursor.getString(cursor.getColumnIndex(Column_Password)),
+                    cursor.getString(cursor.getColumnIndex(Column_Role)),
                     cursor.getString(cursor.getColumnIndex(Column_Mobile)),
-                    cursor.getString(cursor.getColumnIndex(Column_Nic)),
-                    cursor.getString(cursor.getColumnIndex(Column_Password))
-            );
+                    cursor.getString(cursor.getColumnIndex(Column_Name)),
+                    cursor.getString(cursor.getColumnIndex(Column_Age)),
+                    cursor.getString(cursor.getColumnIndex(Column_Address)),
+                    Boolean.parseBoolean(cursor.getString(cursor.getColumnIndex(Column_IsActive))
+                    ));
             cursor.close();
         }
 
@@ -98,45 +114,50 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public User getUserByEmail(String id) {
+    public User getUserByUserName(String username) {
         User user = null;
         SQLiteDatabase database = this.getReadableDatabase();
 
         // Define the columns you want to retrieve
         String[] columns = {
-                Column_ID,
-                Column_Fname,
-                Column_Lname,
-                Column_Email,
+                Column_Name,
+                Column_NIC,
                 Column_Mobile,
-                Column_Nic,
-                Column_Password
+                Column_Age,
+                Column_Address,
+                Column_Username,
+                Column_Password,
+                Column_Role,
+                Column_IsActive
         };
 
         // Define the selection criteria (WHERE clause)
-        String selection = Column_Email + " = ?";
-        String[] selectionArgs = {id};
+        String selection = Column_Username + " = ?";
+        String[] selectionArgs = {username};
 
         // Query the database
         Cursor cursor = database.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
             user = new User(
-                    cursor.getString(cursor.getColumnIndex(Column_ID)),
-                    cursor.getString(cursor.getColumnIndex(Column_Fname)),
-                    cursor.getString(cursor.getColumnIndex(Column_Lname)),
-                    cursor.getString(cursor.getColumnIndex(Column_Email)),
+                    cursor.getString(cursor.getColumnIndex(Column_NIC)),
+                    cursor.getString(cursor.getColumnIndex(Column_Username)),
+                    cursor.getString(cursor.getColumnIndex(Column_Password)),
+                    cursor.getString(cursor.getColumnIndex(Column_Role)),
                     cursor.getString(cursor.getColumnIndex(Column_Mobile)),
-                    cursor.getString(cursor.getColumnIndex(Column_Nic)),
-                    cursor.getString(cursor.getColumnIndex(Column_Password))
-            );
+                    cursor.getString(cursor.getColumnIndex(Column_Name)),
+                    cursor.getString(cursor.getColumnIndex(Column_Age)),
+                    cursor.getString(cursor.getColumnIndex(Column_Address)),
+                    Boolean.parseBoolean(cursor.getString(cursor.getColumnIndex(Column_IsActive))
+                    ));
             cursor.close();
         }
 
         return user;
     }
 
-  /*-----------------------Reservation functions------------------------*/
+
+    /*-----------------------Reservation functions------------------------*/
     public void onCreate1(SQLiteDatabase sqLiteDatabase) {
         String CREATE_TABLE1 = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME1 + " (" + Column_TID + " INTEGER PRIMARY KEY, " + Column_Tname + " VARCHAR," + Column_Tnic + " VARCHAR, " + Column_Train + " VARCHAR, " + Column_Date + " VARCHAR, " + Column_Start + " VARCHAR, " + Column_Destination + " VARCHAR)";
         sqLiteDatabase.execSQL(CREATE_TABLE1);

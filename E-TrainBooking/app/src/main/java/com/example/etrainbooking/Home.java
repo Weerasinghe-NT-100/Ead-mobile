@@ -2,6 +2,7 @@ package com.example.etrainbooking;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -65,56 +66,60 @@ public class Home extends AppCompatActivity {
 
         // Initialize the SessionManager
         sessionManager = new SessionManager(getApplicationContext());
-        String userId = sessionManager.getUserId();
+        String userNic = sessionManager.getUserNic();
 
-        // Fetch user details based on the email from the database
-        User currentUser = dbHelper.getUserById(userId);
+        if (userNic != null) {
+            // Fetch user details based on the email from the database
+            User currentUser = dbHelper.getUserByNIC(userNic);
 
-        userTittle.setText("Hey " + currentUser.getFname());
+            userTittle.setText("Hey " + currentUser.getUserName());
 
-        userTittle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), UserViewDetails.class);
-                startActivity(intent);
-            }
-        });
+            userTittle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), UserViewDetails.class);
+                    startActivity(intent);
+                }
+            });
 
-        goToAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ScheduleView.class);
-                startActivity(intent);
-            }
-        });
+            goToAdd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), ScheduleView.class);
+                    startActivity(intent);
+                }
+            });
 
-        goPastList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PastReservations.class);
-                startActivity(intent);
-            }
-        });
+            goPastList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), PastReservations.class);
+                    startActivity(intent);
+                }
+            });
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sessionManager.endSession();
-                Intent intent = new Intent(Home.this, Login.class);
-                startActivity(intent);
-            }
-        });
+            btnLogout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    sessionManager.endSession();
+                    Intent intent = new Intent(Home.this, Login.class);
+                    startActivity(intent);
+                }
+            });
 
-        // Initialize the RecyclerView and layout manager
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        reservations = new ArrayList<>(); // Initialize the list
+            // Initialize the RecyclerView and layout manager
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            reservations = new ArrayList<>(); // Initialize the list
 
-        // Fetch and populate reservation data
-        fetchReservationData(currentUser.getNic());
+            // Fetch and populate reservation data
+            fetchReservationData(currentUser.getNic());
 
-        // Initialize the custom adapter
-        customAdapter = new CustomAdapter(Home.this, reservations);
-        recyclerView.setAdapter(customAdapter);
+            // Initialize the custom adapter
+            customAdapter = new CustomAdapter(Home.this, reservations);
+            recyclerView.setAdapter(customAdapter);
+        } else {
+            Log.e("Register", "Error in Register button click");
+        }
     }
 
     @Override

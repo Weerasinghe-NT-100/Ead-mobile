@@ -35,12 +35,12 @@
 
     <!-- Email Address -->
     <TextView
-        android:id="@+id/email_label"
+        android:id="@+id/name_label"
         android:layout_width="117dp"
         android:layout_height="22dp"
         android:layout_marginTop="48dp"
         android:ems="10"
-        android:text="Email:"
+        android:text="Name:"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="parent"
@@ -49,42 +49,16 @@
 
     <!-- Email Value -->
     <TextView
-        android:id="@+id/email_value"
+        android:id="@+id/name_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="elan123@gmail.com"
+        android:text="Nimal Weerasinghe"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@+id/user_name"
-        app:layout_constraintStart_toEndOf="@+id/email_label"
+        app:layout_constraintStart_toEndOf="@+id/name_label"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="2dp"
         android:layout_marginTop="48dp"/>
-
-    <!-- Mobile Number -->
-    <TextView
-        android:id="@+id/mobile_label"
-        android:layout_width="117dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="25dp"
-        android:ems="10"
-        android:text="Mobile Number:"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_label" />
-
-    <!-- Mobile Number Value -->
-    <TextView
-        android:id="@+id/mobile_value"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="1234567890"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/email_label"
-        app:layout_constraintStart_toEndOf="@+id/mobile_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="25dp"/>
 
     <!-- NIC (National Identification Card) -->
     <TextView
@@ -97,7 +71,7 @@
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobile_label" />
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
 
     <!-- NIC Value -->
     <TextView
@@ -106,8 +80,60 @@
         android:layout_height="wrap_content"
         android:text="NIC12345"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/mobile_label"
+        app:layout_constraintTop_toBottomOf="@+id/name_label"
         app:layout_constraintStart_toEndOf="@+id/nic_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"/>
+
+    <!-- Mobile Number -->
+    <TextView
+        android:id="@+id/mobile_label"
+        android:layout_width="117dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:text="Mobile Number:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nic_label" />
+
+    <!-- Mobile Number Value -->
+    <TextView
+        android:id="@+id/mobile_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1234567890"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/nic_label"
+        app:layout_constraintStart_toEndOf="@+id/mobile_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"/>
+
+    <!-- Mobile Number -->
+    <TextView
+        android:id="@+id/address_label"
+        android:layout_width="117dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:text="Home Address:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobile_label" />
+
+    <!-- Mobile Number Value -->
+    <TextView
+        android:id="@+id/address_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="No.11, State Lane, Colombo"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/mobile_label"
+        app:layout_constraintStart_toEndOf="@+id/address_label"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="2dp"
         android:layout_marginTop="25dp"/>
@@ -123,7 +149,7 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nic_label" />
+        app:layout_constraintTop_toBottomOf="@+id/address_label" />
 
     <Button
         android:id="@+id/delete_button"
@@ -138,6 +164,6 @@
         app:layout_constraintEnd_toStartOf="@+id/update_button"
         app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nic_label" />
+        app:layout_constraintTop_toBottomOf="@+id/address_label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -63,47 +63,6 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/txt_lname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="Last Name"
-                android:textAlignment="viewStart"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/edit_lname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="0dp"
-                android:hint="abc"
-                android:textAlignment="viewStart"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/txt_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:fontFamily="@font/cabin"
-                android:text="Email "
-                android:textAlignment="viewStart"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/edit_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="0dp"
-                android:hint="email@gmail.com"
-                android:textAlignment="viewStart"
-                android:textSize="17sp" />
-
-            <TextView
                 android:id="@+id/tex_nic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -142,6 +101,66 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="0dp"
                 android:hint="+94 1234567"
+                android:textAlignment="viewStart"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txt_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Age"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/edit_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="0dp"
+                android:hint="24"
+                android:textAlignment="viewStart"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txt_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Home Address"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/edit_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="0dp"
+                android:hint="No.11, State lane, Colombo"
+                android:textAlignment="viewStart"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txt_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="User Name"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/edit_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="0dp"
+                android:hint="abc"
                 android:textAlignment="viewStart"
                 android:textSize="17sp" />
 

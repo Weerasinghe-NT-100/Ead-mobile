@@ -35,18 +35,18 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="E-Mail"
+            android:text="User Name"
             android:layout_marginStart="5dp"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/inp_email"
+            android:id="@+id/inp_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:hint="email address"
+            android:hint="Username"
             android:layout_marginStart="5dp"
             android:textAlignment="viewStart"
             android:textSize="20sp" />

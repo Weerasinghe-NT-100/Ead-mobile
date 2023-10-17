@@ -58,12 +58,12 @@ public class PastReservations extends AppCompatActivity {
 
         // Initialize the SessionManager
         sessionManager = new SessionManager(getApplicationContext());
-        String userId = sessionManager.getUserId();
+        String userNic = sessionManager.getUserNic();
 
         // Fetch user details based on the email from the database
-        User currentUser = dbHelper.getUserById(userId);
+        User currentUser = dbHelper.getUserByNIC(userNic);
 
-        userTittle.setText("Hey " + currentUser.getFname());
+        userTittle.setText("Hey " + currentUser.getUserName());
 
         userTittle.setOnClickListener(new View.OnClickListener() {
             @Override
